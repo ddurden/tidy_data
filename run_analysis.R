@@ -1,5 +1,6 @@
 
-#demonstration for Ke and Stefan
+#David Durden
+#Running tests to ensure Git is working properly.
 
 #Names of the feature variables in the test and train dataset
 varname<-read.table("features.txt",header=F,colClasses="character")
