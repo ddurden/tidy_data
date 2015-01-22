@@ -1,6 +1,6 @@
 
 #David Durden
-#Running tests to ensure Git is working properly.
+#Changing for test
 
 #Names of the feature variables in the test and train dataset
 varname<-read.table("features.txt",header=F,colClasses="character")
