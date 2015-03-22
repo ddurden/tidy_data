@@ -2,6 +2,12 @@
 #David Durden
 #Program to create a tidy data set from the Samsung S data.
 
+#Adding libraries: reshape2 package
+library(reshape2)
+
+#Set working directory to the folder "UCI HAR Dataset" that contains the data
+setwd("./UCI HAR Dataset/")
+
 #Names of the feature variables in the test and train dataset
 varname<-read.table("features.txt",header=F,colClasses="character")
 varname<-unlist(varname[,2])
@@ -14,7 +20,7 @@ fdat_test<- read.table(file="./test/X_test.txt")
 activity_id_test<- read.table(file="./test/y_test.txt")
 
 #Combining the test data by columns into a data frame
-test_dat<-cbind(suject_id_test,activity_id_test,fdat_test)
+test_dat<-cbind(subject_id_test,activity_id_test,fdat_test)
 
 #Reading in the train data sets
 subject_id_train<- read.table(file="./train/subject_train.txt")
@@ -22,7 +28,7 @@ fdat_train<- read.table(file="./train/X_train.txt")
 activity_id_train<- read.table(file="./train/y_train.txt")
 
 #Combining the train data by columns into a data frame
-train_dat<-cbind(suject_id_train,activity_id_train,fdat_train)
+train_dat<-cbind(subject_id_train,activity_id_train,fdat_train)
 
 #Combining the test and train data frames into a into a single data frame by rows
 alldat<-rbind(test_dat,train_dat)
@@ -50,7 +56,9 @@ df_melt <- melt(sub_dat, id = c("subject_id", "activity_id"))
 #Casting a tidy data frame of the mean values by subject and activity
 df_cast <- dcast(df_melt, subject_id + activity_id ~ variable, mean)
 
+#Setting working directory back to original directory
+setwd("../")
+
 #Writing an output .txt file
 write.table(df_cast,"phone_dat.txt",col.names = T, row.name = F)
-
 
