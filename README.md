@@ -23,7 +23,7 @@ The activity id represented by integer factor levels are replace with descriptiv
 
 Notes:
 ======
--run_analysis.R should be placed in the UCI HAR data folder keeping the file structure.
+-run_analysis.R should be placed in the same folder as the UCI HAR data folder, keeping the file structure the same.
 - The following files found in the UCI HAR Data folder contain information on the original dataset.
 	-'README.txt'
 	- 'features_info.txt': Shows information about the variables used on the feature vector.
